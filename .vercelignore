@@ -1,0 +1,8 @@
+node_modules
+dist
+.export-tmp
+.slidev
+builders/anchor/target
+builders/ts/node_modules
+builders/anchor/test-ledger
+.env*
