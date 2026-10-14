@@ -1,53 +1,68 @@
 # DeFi on Solana
 
-A free six-week course on decentralised finance, taught on Solana. It's built for a room that mixes finance graduates and developers. Each week is one interactive [Slidev](https://sli.dev) deck: short slides, live diagrams, and the full teaching script in the speaker notes.
+A free six-week course on decentralised finance, taught on Solana. It's built for small online groups that mix finance graduates and developers. Each week has an interactive [Slidev](https://sli.dev) deck, a teacher guide, a one-page cheat sheet, a task file and tested starter code.
 
-**Live decks:** https://tobysolutions.github.io/solana-defi-course/
+**Live:** https://solana-defi-course.vercel.app (mirror: https://tobysolutions.github.io/solana-defi-course/)
 
-| Week | Topic | What students ship |
+| Week | Topic | Students ship |
 |---|---|---|
-| 0 | [Course map](slides.md): how the course runs, EVM to Solana translation, toolkit | |
-| 1 | [Intro to DeFi](week-1.md): banks vs programs, history, the Solana map, why Solana | Trace a real Jupiter route |
-| 2 | [Wallets & devnet](week-2.md): keys, accounts, tokens, transactions, fees | Send devnet USDC and read it on Orb |
-| 3 | [Liquidity & AMMs](week-3.md): x · y = k, price impact, impermanent loss, yield | Provide liquidity on devnet |
+| 0 | [Course map](slides.md): how it runs, EVM to Solana translation, toolkit | |
+| 1 | [Intro to DeFi](week-1.md): banks vs programs, history, the Solana map, why Solana | A traced Jupiter route |
+| 2 | [Wallets & devnet](week-2.md): keys, accounts, tokens, transactions, fees | A devnet USDC send, read on Orb |
+| 3 | [Liquidity & AMMs](week-3.md): x · y = k, price impact, impermanent loss, yield | A liquidity-pool model |
 | 4 | [Lending & stablecoins](week-4.md): LTV, health factor, liquidation, oracles, pegs | A liquidation model |
 | 5 | [Risk & security](week-5.md): Solana's hacks by root cause, token red flags, due diligence | A post-mortem and a token audit |
 | 6 | [Capstone & careers](week-6.md): tiers, demo day, where to go next | Demo day |
 
-## What's interactive
+## What's in the repo
 
-Every teaching slide has a diagram that steps on the presenter's click, or a widget students can use themselves. A few:
+| Folder | What it is |
+|---|---|
+| `*.md`, `components/` | The decks. 66 Vue components: click-stepped diagrams, live simulators, incident replays |
+| `teacher/` | A guide per week: three-session plan with slide numbers, teach-back prompts, pre-reading, marking guide, model answers |
+| `handouts/` | One-page student cheat sheets (also as PDFs in `downloads/`) |
+| `materials/` | Spreadsheets for the week 3 pool task and the week 4 lending task, with live formulas |
+| `builders/` | Tested starter code for the Builders track: TypeScript scripts (`@solana/kit`) and an Anchor 1.2.1 workspace |
+| `downloads/` | Slides, speaker scripts (thumbnail beside notes) and cheat sheets as PDFs |
 
-- a real Ed25519 keypair you sign with, then tamper with
-- a transaction you can take apart field by field, and a fee calculator
-- the constant-product curve with a trade you drag along it
-- impermanent loss against holding, with fees switched on and off
-- a lending position you crash until it liquidates
-- step-by-step replays of Wormhole, Cashio, Mango and Drift
-- a token red-flag checker and a due-diligence scorecard
+## Teach it live
 
-## Run it
+**Hosted (Vercel):** send mentees the week's link, for example `/week-3/`. Open `/week-3/?key=<PRESENTER_KEY>#/presenter/1` yourself. When you move a slide or step an animation in speaker view, every mentee's screen follows. Mentees can flip back on their own and snap to you on your next click. Only a link with the presenter key can move the class.
+
+**From your laptop:**
+
+```bash
+npm run teach -- 3            # week 3, mentees on the same Wi-Fi follow you
+npm run teach -- 3 --online   # plus a public link for online mentees (needs: brew install cloudflared)
+```
+
+It prints a private speaker-view link for you and a follow link for mentees. Every run makes a new password.
+
+In any deck: **P** speaker view, **O** all slides, **F** fullscreen, arrow keys step through animations.
+
+## Run and build
 
 ```bash
 npm install
-npx slidev slides.md      # course map
-npx slidev week-3.md      # any week
-npm run build             # every deck into dist/, plus the landing page
+npx slidev week-1.md       # edit with live reload
+npm run build              # every deck plus the landing page into dist/
+npm run export             # regenerate the PDFs in downloads/
+npm run check:type         # fails on any raw font size
+cd builders/ts && npm test # Builders track tests (offline)
 ```
 
-In a deck: **P** opens presenter mode with notes, **O** shows all slides, arrow keys step through animations, **D** toggles dark drawing tools.
+Everything runs offline once installed: fonts are bundled.
 
-## Teaching it
+## Accuracy
 
-- 30 minutes of slides, then the task live in class. The "Teacher prep" section at the end of each deck is for the mentor.
-- Two tracks every week. **Users** work through wallets, explorers and spreadsheets. **Builders** do the same plus a code extension.
-- Devnet and test tokens only. The one exception is an optional, clearly flagged $5 supply in week 4.
-- Facts were checked on 11 October 2026. TVL, supply and prices move weekly; quote them with a date.
+Facts were checked on 11 October 2026 and re-checked on 14 October 2026 against primary sources: protocol docs, GitHub releases, post-mortems and court records. Anything that moves weekly (TVL, supply, prices) carries a date. Slides marked "verify before class" list what to re-check. Pyth's Hermes service has needed an API key since 26 August 2026, so the course reads prices from Pyth's public pages or the on-chain price account instead.
+
+## Safety
+
+Devnet and test tokens only. The one exception is an optional, clearly flagged $5 supply in week 4. Never share a recovery phrase. Nothing here is financial advice.
 
 ## Contributing
 
-Corrections and new widgets are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first: it covers the colour meanings, the type scale (CI rejects raw font sizes), and the "short slide, deep notes" rule.
+Corrections and new widgets are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) first: colour meanings, the type scale (CI rejects raw font sizes), and the "short slide, deep notes" rule.
 
-## Licence
-
-MIT. Nothing here is financial advice.
+MIT licensed.

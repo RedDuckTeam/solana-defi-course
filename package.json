@@ -6,7 +6,9 @@
     "dev": "slidev slides.md --open",
     "dev:week": "slidev",
     "build": "node scripts/build-all.mjs",
-    "check:type": "node scripts/check-type-scale.mjs"
+    "check:type": "node scripts/check-type-scale.mjs",
+    "teach": "node scripts/teach.mjs",
+    "export": "node scripts/export-pdfs.mjs"
   },
   "devDependencies": {
     "@slidev/cli": "^53.0.0",

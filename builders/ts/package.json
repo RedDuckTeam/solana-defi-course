@@ -1,0 +1,25 @@
+{
+  "name": "defi-on-solana-builders",
+  "private": true,
+  "type": "module",
+  "description": "Builders track starter code for the DeFi on Solana course.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "tsx --test test/*.test.ts",
+    "w1": "tsx src/w1-jupiter-quote.ts",
+    "w2": "tsx src/w2-devnet-usdc.ts",
+    "w3": "tsx src/w3-amm.ts",
+    "w4": "tsx src/w4-lending.ts",
+    "w4:price": "tsx src/w4-pyth-price.ts",
+    "w5": "tsx src/w5-token-audit.ts"
+  },
+  "dependencies": {
+    "@solana-program/system": "0.15.0",
+    "@solana-program/token": "0.17.0",
+    "@solana-program/token-2022": "0.19.0",
+    "@solana/kit": "8.4.0"
+  },
+  "devDependencies": {
+    "tsx": "4.23.15"
+  }
+}

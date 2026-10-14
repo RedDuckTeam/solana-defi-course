@@ -11,7 +11,7 @@ const tiers = [
   {
     n: 'Light code', tone: 't-chain', who: 'Users + scripting',
     build: 'A TypeScript tool with @solana/kit',
-    ex: ['Live SOL price from Pyth Hermes', 'A Jupiter quote with its route', 'Or: a lending health checker'],
+    ex: ['Live SOL price from Pyth', 'A Jupiter quote with its route', 'Or: a lending health checker'],
     proof: 'It runs on someone else\'s laptop.',
   },
   {

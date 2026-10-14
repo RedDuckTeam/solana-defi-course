@@ -10,7 +10,7 @@ const rows = [
   { evm: 'ERC-20 contract', sol: 'Mint account + token accounts', why: 'One shared token program. Your balance sits in your own token account.' },
   { evm: 'Gas', sol: 'Base fee + priority fee + rent', why: 'Fractions of a cent. Rent is a refundable deposit for storage.' },
   { evm: 'Uniswap', sol: 'Raydium, Orca, Meteora + Jupiter', why: 'Most people swap through Jupiter, which routes across all of them.' },
-  { evm: 'Aave, Compound', sol: 'Kamino, Jupiter Lend, Save, marginfi', why: 'Same mechanics: collateral, LTV, liquidation.' },
+  { evm: 'Aave, Compound', sol: 'Kamino, Jupiter Lend, Save, Project 0', why: 'Same mechanics: collateral, LTV, liquidation.' },
   { evm: 'MakerDAO / DAI', sol: 'USDC, USDT, PYUSD, USDG', why: 'Solana money is mostly fiat-backed stablecoins.' },
   { evm: 'Chainlink', sol: 'Pyth, Switchboard', why: 'Pyth is pull: the app fetches a signed price and posts it in the same transaction.' },
   { evm: 'Solidity + Foundry', sol: 'Rust + Anchor + LiteSVM / Surfpool', why: 'Anchor 1.x ships Surfpool as the default test validator.' },

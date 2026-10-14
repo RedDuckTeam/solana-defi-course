@@ -389,7 +389,7 @@ Processed, confirmed, finalized are the three "commitment levels" you'll see in 
 - Confirmed: validators with two thirds of the total stake voted for that block. Wallets usually show success here.
 - Finalized: at least 31 more blocks have been built on top. For accounting purposes, treat this as settled.
 
-Solana validators approved a new consensus protocol called Alpenglow in 2025, aimed at much faster finality. Check its rollout status before quoting finality times.
+Alpenglow, a new consensus protocol aimed at much faster finality, was approved by validator vote on 2 Sep 2025 (SIMD-0326, 98% yes). It went live on testnet (24 Sep 2026) and devnet (25 Sep 2026), and mainnet was scheduled for about 21 Oct 2026 (epoch 1064). Check solana.com/upgrades/alpenglow before quoting finality times: after it ships, the commitment levels on this slide change.
 -->
 
 ---
@@ -549,8 +549,8 @@ For the mentor. Skip in class.
 
 </v-clicks>
 
-<Callout v-click tone="warn" title="Verify before class" class="mt-6">
-Circle's limit (reportedly 20 USDC per 2 hours per address) comes from a third-party article. Test it yourself.
+<Callout v-click tone="warn" title="Faucet limit" class="mt-6">
+Circle's faucet gives 20 USDC every 2 hours per address (confirmed in Circle's FAQ, 14 Oct 2026). Plan the transfer task around that.
 </Callout>
 
 ---

@@ -12,4 +12,5 @@ for (const d of decks) {
   execSync(`npx slidev build ${d}.md --out dist/${out} --base ${base}${out}/`, { stdio: 'inherit' })
 }
 if (existsSync('site')) cpSync('site', 'dist', { recursive: true })
+if (existsSync('downloads')) cpSync('downloads', 'dist/downloads', { recursive: true })
 console.log('\nDone. Decks:', decks.join(', '))

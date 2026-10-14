@@ -136,7 +136,7 @@ Difference from a bank: lenders here can see every loan and every piece of colla
   </div>
 </div>
 
-<p v-click class="fs-md mt-4"><b class="chain">Kamino Lend · Jupiter Lend · Save · marginfi</b></p>
+<p v-click class="fs-md mt-4"><b class="chain">Kamino Lend · Jupiter Lend · Save · Project 0</b></p>
 
 <style>
 .lenders { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 0.6rem; }
@@ -149,7 +149,7 @@ Difference from a bank: lenders here can see every loan and every piece of colla
 </style>
 
 <!--
-The main Solana lenders as of October 2026: Kamino Lend, Jupiter Lend (launched August 2025), Save (formerly Solend), and marginfi. Same mechanics as Aave and Compound on Ethereum: collateral, LTV, liquidation.
+The main Solana lenders as of October 2026: Kamino Lend, Jupiter Lend (launched August 2025), Save (formerly Solend), and Project 0 (formerly marginfi). Same mechanics as Aave and Compound on Ethereum: collateral, LTV, liquidation.
 
 Two designs:
 - Shared pool: all assets sit in one pool and every deposit backs every loan. Efficient, but a bad or manipulated asset can create bad debt that the whole pool absorbs. This is exactly what the Mango Markets attack exploited (week 5).
@@ -157,7 +157,7 @@ Two designs:
 
 Most modern lenders mix the two. Kamino, for example, runs a main market and separate isolated ones.
 
-marginfi went through ownership changes in 2026: check its current name and app URL before you mention it in class.
+marginfi's team relaunched as Project 0 (P0), announced 11 Sep 2025, on the same lending program. The old marginfi app, SDK and API were shut down in mid-2026; the app is now app.0.xyz. It was a rename, not a sale.
 
 TVL rankings move weekly. If you quote one, open DefiLlama and say the date.
 -->
@@ -329,7 +329,7 @@ A Solana program cannot look at Binance. It only sees accounts passed into its t
 Click 1: publishers. Exchanges, market makers and trading firms publish their own prices for SOL/USD.
 Click 2: Pythnet, Pyth's own appchain, aggregates them into one price plus a confidence interval, continuously.
 Click 3: Hermes is Pyth's web service. It serves the latest price update, signed so that the Pyth program on Solana can verify it.
-Click 4: your app (the lending UI) fetches the latest update from Hermes.
+Click 4: your app (the lending UI) fetches the latest update from Hermes (apps use an API key since 26 Aug 2026).
 Click 5: this is the "pull" part. The app puts two instructions in one transaction: first post the signed price update, then borrow. The price arrives with the user's action, so it's fresh.
 Click 6: the lending program checks the update is genuine (signature), is the right feed (SOL/USD, not some other account), and isn't too old. Then it values your collateral.
 Click 7: decoding. Prices come as an integer plus an exponent. 15234000000 × 10^−8 = $152.34. The confidence interval is encoded the same way.
@@ -343,35 +343,44 @@ SOL/USD feed id: ef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56
 
 ---
 
-# Try it in your browser
+# See the live price
 
-<div class="hermes">
-  <p class="fs-md">Paste this, then the SOL/USD feed id:</p>
-  <code class="url">hermes.pyth.network/v2/updates/price/latest?ids[]=</code>
-  <code class="id">ef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d</code>
-  <div v-click class="read">
-    <div><small>Find</small><b class="mono">"price"</b> and <b class="mono">"expo"</b> in <b class="mono">parsed</b></div>
-    <div><small>Compute</small><b class="mono">price × 10^expo</b></div>
-    <div><small>Write down</small><b>the time you looked</b></div>
+<div class="livepx">
+  <div class="lane">
+    <h3>Users</h3>
+    <code>insights.pyth.network</code>
+    <p>Search <b>SOL/USD</b>. Read the price, the confidence band and when it last updated.</p>
+  </div>
+  <div class="lane builders">
+    <h3 class="chain">Builders</h3>
+    <code>npm run w4:price</code>
+    <p>Reads Pyth's SOL/USD account on Solana: <b class="mono">price × 10^expo</b>, after checking who owns the account.</p>
   </div>
 </div>
 
+<Callout v-click tone="warn" title="Hermes now needs a key" class="mt-6">Since 26 Aug 2026 the public Hermes URL returns 401. Apps use a key; you don't need one for class.</Callout>
+
+<p v-click class="fs-md mt-4">Write down <strong>the price and the time you looked</strong>. That's your spreadsheet's starting row.</p>
+
 <style>
-.hermes { display: grid; gap: 0.6rem; margin-top: 1rem; }
-.hermes code { display: block; font-size: var(--fs-md) !important; padding: 0.5rem 0.8rem !important; word-break: break-all; }
-.hermes .id { font-size: var(--fs-sm) !important; }
-.hermes .read { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 0.8rem; }
-.hermes .read > div { border-top: 3px solid var(--chain); padding-top: 0.4rem; }
-.hermes small { display: block; font-size: var(--fs-xs); color: var(--muted); }
-.hermes .read b { font-size: var(--fs-base); }
+.livepx { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem; margin-top: 1rem; }
+.livepx .lane { border-top: 6px solid var(--ink); padding-top: 0.6rem; }
+.livepx .lane.builders { border-color: var(--chain); }
+.livepx h3 { margin: 0 0 0.4rem !important; }
+.livepx code { display: block; font-size: var(--fs-md) !important; padding: 0.4rem 0.7rem !important; margin-bottom: 0.5rem; }
+.livepx p { font-size: var(--fs-sm); color: var(--ink-2); margin: 0; }
 </style>
 
 <!--
-Do this live. Open https://hermes.pyth.network/v2/updates/price/latest?ids[]=ef0d8b6fda2ceba41da15d4095d1da392a0d2f8ed0c6c7bc0f4cfac8c280b56d in a browser.
+Checked 14 Oct 2026: Pyth's Hermes service now requires an API key (Authorization: Bearer). The old browser URL hermes.pyth.network/v2/updates/price/latest?ids[]=... returns 401 unauthorized, so the original "paste the URL" exercise no longer works. Source: docs.pyth.network/price-feeds/core/upgrade/preparing.
 
-The JSON has a "binary" part (the signed update, what the app would post on-chain) and a "parsed" part. In parsed[0].price you'll find "price", "conf", "expo" and "publish_time". Price in dollars = price × 10^expo. Confidence the same way.
+Users: open insights.pyth.network and search SOL/USD. It shows the aggregate price, the confidence interval (how much the publishers disagree) and the last update. Ask: why does a lender care about the confidence band? (A wide band means the price is uncertain; careful lenders treat that as risk.)
 
-This is the live price they'll use in the spreadsheet task. publish_time is a Unix timestamp; have them convert it, and note the time they looked (course rule 3).
+Builders: `cd builders/ts && npm run w4:price`. It reads the SOL/USD price account 7UVimffxr9ow1uXYxsr4LHAcV58mLzhmwaeKvJ1pjLiE (owned by the Pyth Receiver program) straight from Solana mainnet, no key needed. The raw numbers come as an integer price and an exponent: dollars = price × 10^expo. The script also checks the account's owner before trusting it, which is the week 5 lesson (Wormhole, Cashio) in one line. With a free Pyth key (pythdata.app/signup) it also fetches the signed Hermes update.
+
+The pull model on the previous slide still holds: apps fetch a signed update and post it in the same transaction. Only the public, keyless access went away.
+
+This price is the starting row of the spreadsheet task. Course rule 3: write down the time.
 -->
 
 ---
@@ -473,7 +482,7 @@ D is correct if redemption stops (the SVB weekend). That's the follow-up questio
 
 **Simulate it** (recommended)
 
-1. Get the live SOL price from Hermes
+1. Get the live SOL price (insights.pyth.network)
 2. Spreadsheet: deposit, borrow, then drop the price in steps
 3. Each row: LTV, health factor
 4. Mark the liquidation price and the liquidator's profit
@@ -496,7 +505,7 @@ Already hold USDC? Supply $5 to a lender and watch interest accrue. Supply only.
 </Callout>
 
 <!--
-From the handbook. No Solana lending app had a reliably working devnet market in 2026. Save's docs mention a devnet deployment with self-minted "USDC", but those docs are about 3.5 years old. No source confirmed a working Kamino or marginfi devnet market. Don't promise a devnet lending UI until you've tested one yourself.
+Checked 14 Oct 2026: no major Solana lender offers a public devnet UI. Kamino's lending program is deployed on devnet at its mainnet ID (KLend2g3cP87fffoy8q1mQqGKjrxjC8boSyAYavgmjD), so builders can create their own devnet market with klend-sdk (kamino-manager create-market). The other route is a Surfpool mainnet fork. Users do the spreadsheet (materials/week-4-lending-model.xlsx).
 
 Everyone, simulate (recommended): spreadsheet with columns price, collateral value, debt, LTV, HF, status. Start at the live Pyth price (price × 10^expo), borrow at 60% LTV, then step the price down 5% per row until HF < 1. Then add the liquidation row: repay 50%, seize debt × 1.05 of collateral. Use the real liquidation threshold for SOL from Kamino or Jupiter Lend's UI (look it up, write down where and when).
 
@@ -565,11 +574,11 @@ Pyth: read the Solana pull-integration guide, and the Pyth + Anchor devnet tutor
 <div class="checks">
 
 <Callout tone="warn" title="Any devnet lending market">
-Save's devnet docs are about 3.5 years old. No working Kamino or marginfi devnet market was confirmed. Test one or don't promise it.
+No lender has a public devnet UI. Builders: create a Kamino devnet market with klend-sdk, or fork mainnet with Surfpool.
 </Callout>
 
-<Callout tone="warn" title="marginfi's name and URL">
-Ownership changed in 2026. Check the current app before naming it.
+<Callout tone="warn" title="marginfi is now Project 0">
+Same team and program, renamed Sep 2025. Old app shut in mid-2026; use app.0.xyz.
 </Callout>
 
 <Callout tone="warn" title="Numbers with dates">

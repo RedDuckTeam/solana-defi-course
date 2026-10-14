@@ -376,7 +376,7 @@ Per the handbook (sources: Chainalysis and TRM Labs write-ups):
 4. Because they were durable-nonce transactions, they stayed valid until used.
 5. On 1 April 2026 the attackers submitted them. One admin action whitelisted a fake token, CVT, as collateral.
 6. They deposited CVT and withdrew real assets: about $285M in roughly 12 minutes.
-Early attribution pointed to North Korea (DPRK). Treat that as "early attribution", not settled fact.
+Detail from later reporting (checked 14 Oct 2026): the Security Council was a 2-of-5 multisig with zero timelock. The fake token was "CarbonVote Token" (CVT) with an inflated oracle price, and the CVT market was created after the attacker gained admin control. The drain was 31 withdrawals in about 12 minutes. Loss estimates range from $270M (CoinDesk) to $286M (Elliptic). Elliptic called it suspected DPRK on 2 Apr; on 5 Apr Drift attributed it, with medium-high confidence, to UNC4736 (AppleJeus / Citrine Sleet), the group behind the Radiant hack. Sources: elliptic.co (2026-04-02), coindesk.com (2026-04-05).
 
 The lessons:
 - A multisig is only as strong as what each signer actually reads.
@@ -394,14 +394,14 @@ clicks: 4
 
 <ExploitSlope :step="$clicks" />
 
-<Callout v-click="4" tone="loss" class="mt-2" title="Aquifer · 31 Aug 2026 · ~$2.5M">Compromised wallet access, per the team. Same bucket: whoever holds the key holds the money.</Callout>
+<Callout v-click="4" tone="loss" class="mt-2" title="Aquifer · 31 Aug 2026 · ~$2.5M">Cause not confirmed by the team. Reports point to compromised keys. Treat it as unproven.</Callout>
 
 <!--
 Slope: 9,231 wallets drained, about $4.1M, per the Solana Foundation. Keys tied to the Slope mobile app had leaked. Widely reported at the time: the app sent sensitive wallet data to a monitoring service. Slope's own report disputed how much that caused. Say "the exact path is disputed".
 
 The key lesson: the key is the account. People who had moved their Slope seed phrase into another wallet app were drained too, because the leak was the seed phrase itself, not the app.
 
-Aquifer, 31 Aug 2026, about $2.5M: compromised wallet access, according to the team. Little detail is public. Mark it as "per the team" when you mention it.
+Aquifer, 31 Aug 2026, about $2.5M ($2.47M in some reports). The team has published no post-mortem and gave no cause. SlowMist and others suggest compromised wallets or keys; Bitquery's on-chain write-up reads more like a program flaw. It sits in this bucket provisionally: say "suspected" out loud.
 
 Link back to rule 1 from the course map: never share a seed phrase or private key.
 -->
@@ -666,7 +666,7 @@ If you only have one hour of prep: Drift write-up (30 min), then run the TokenRe
 | Loopscale | 26 Apr 2025 | ~$5.8M | RateX PT collateral mispriced; ~12% of TVL |
 | Slope wallet | 2 Aug 2022 | ~$4.1M | Keys tied to the app leaked; 9,231 wallets |
 | Drift | 1 Apr 2026 | ~$285M | Signers tricked into durable-nonce admin txs |
-| Aquifer | 31 Aug 2026 | ~$2.5M | Compromised wallet access, per the team |
+| Aquifer | 31 Aug 2026 | ~$2.5M | Cause unconfirmed; reports suggest compromised keys |
 | @solana/web3.js | 2 Dec 2024 | ~$160–190K | npm account hijack; 1.95.6 and 1.95.7 backdoored |
 
 <!--

@@ -337,7 +337,7 @@ Click 2, concentrated liquidity (Orca Whirlpools, Raydium CLMM): each LP chooses
 
 Click 3, bins (Meteora DLMM, "dynamic liquidity market maker"): liquidity sits in discrete price buckets. Inside one bin, the price is fixed, so a trade that fits inside the active bin (green) has zero slippage. Meteora also uses dynamic fees that rise with volatility.
 
-Click 4, prop AMMs: no passive curve at all. A professional market maker runs its own program and updates its quotes on-chain, often every slot (~400ms). HumidiFi is the example that took a large share of Solana spot DEX volume in 2026. This only works because Solana is fast and cheap enough to update quotes constantly. Ask: is that still "decentralized"? It is permissionless to trade against, but one firm sets the price. Good blog-post material.
+Click 4, prop AMMs: no passive curve at all. A professional market maker runs its own program and updates its quotes on-chain, often every slot (~400ms). HumidiFi led Solana spot DEX volume in late 2025 (roughly 30 to 47%), then BisonFi, another prop AMM, passed it in January 2026. This only works because Solana is fast and cheap enough to update quotes constantly. Ask: is that still "decentralized"? It is permissionless to trade against, but one firm sets the price. Good blog-post material.
 
 For the teacher: be ready to explain that LPs in Whirlpools and CLMM get position NFTs, not LP tokens.
 -->
@@ -379,7 +379,7 @@ Click 3: each pool now moves only 50 ÷ 1,050 = 30 ÷ 630 = 20 ÷ 420 = 4.8%. Sa
 
 This is what Jupiter does on every quote, across Raydium, Orca, Meteora, prop AMMs and others. Most Solana users never touch a DEX directly; they swap through Jupiter. Week 1's task already had them read a Jupiter route. Remind them of the route they traced.
 
-Builders: the Swap API (GET https://api.jup.ag/swap/v2/order, free key from portal.jup.ag) returns the route plan. Old tutorials using quote-api.jup.ag/v6 or lite-api.jup.ag are retired or being retired.
+Builders: the Swap API (GET https://api.jup.ag/swap/v2/order, free key from portal.jup.ag) returns the route plan. quote-api.jup.ag/v6 is being shut down. lite-api.jup.ag still works for now (its retirement was postponed with no new date), but teach api.jup.ag with a key.
 -->
 
 ---
@@ -495,13 +495,13 @@ Then build the impermanent-loss table: 1.25×, 2×, 4×.
 </Tracks>
 
 <Callout tone="warn" class="mt-3" title="Test the route yourself first">
-Raydium's devnet UI link is unconfirmed. Orca pool: <code>3KBZiL…z1HvPt</code>
+Raydium: devnet setting on raydium.io, program IDs from docs.raydium.io only. Orca pool: <code>3KBZiL…z1HvPt</code>
 </Callout>
 
 <!--
 Three routes from the handbook. Pick the one that works in your class, after testing it yourself 48 hours before.
 
-A. Raydium devnet UI. A Raydium contributor announced a working devnet UI in July 2025 (swap, create pools, get test tokens). One GitHub issue suggests it's a devnet toggle inside raydium.io, and also reports a CPMM devnet program-ID mismatch that broke swaps. Current link not confirmed. Devnet APIs: api-v3-devnet.raydium.io and transaction-v1-devnet.raydium.io.
+A. Raydium devnet. Raydium announced a working devnet UI through its infra account (@0xINFRA) on 15 July 2025: swap, create pools, test tokens. It is a devnet setting inside raydium.io, not a separate site; find the toggle yourself before class. Use the devnet program IDs from docs.raydium.io/reference/program-addresses: CPMM DRaycpLY18LhpbydsBWbVJtxpNv9oXPgjRSfpF2bWpYb, CLMM DRayAUgENGQBKVaX8owNhgzkEDyoHTGVEGHVJT1E9pfH, AMM v4 DRaya7Kj3aMWQSy19kSjvmuwq9docCHofyP9kanQGaav. The raydium-cpi-example README lists a different CPMM ID (CPMDW...) that does not match the UI; that issue (#16) was still open on 14 Oct 2026. Devnet APIs: api-v3-devnet.raydium.io and transaction-v1-devnet.raydium.io.
 
 B. Orca SDK on devnet. Orca's docs use an existing SOL/devUSDC Whirlpool on devnet and setWhirlpoolsConfig('solanaDevnet'). Whirlpools program: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc. Pool: 3KBZiL2g8C7tiJ32hTv5v3KM7aK9htpqTw4cTXz1HvPt. Package: @orca-so/whirlpools. Remember it needs Orca's devUSDC, not Circle's.
 
@@ -581,7 +581,7 @@ Blueshift: learn.blueshift.gg, Pinocchio AMM challenge (constant-product impleme
 | Pool example | `solana-developers/program-examples/tokens/token-swap` |
 
 <Callout tone="warn" class="mt-3" title="Verify before class">
-Raydium's devnet UI was announced July 2025. Current link unconfirmed; one issue reports a CPMM program-ID mismatch.
+Raydium's devnet is a setting on raydium.io (announced 15 Jul 2025). Use program IDs from docs.raydium.io, not the cpi-example README (CPMM mismatch, issue #16, still open).
 </Callout>
 
 <!--

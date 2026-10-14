@@ -1,0 +1,21 @@
+skip_local_validator = true
+
+[toolchain]
+anchor_version = "1.2.1"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+cp-amm = "bSGEvaqpoqpqV8Bpx59vBfVXCYzxotDYenAk5w2F1nj"
+vault_bug = "68e93666TsUH56DovSQF6YiiJuncwBUMWvJwnYkCwTRB"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "cargo test"
+
+[hooks]

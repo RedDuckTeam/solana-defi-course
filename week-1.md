@@ -284,9 +284,9 @@ clicks: 7
 Build it up one click at a time.
 
 1. The middle: Solana is one shared ledger. Its money layer is mostly fiat-backed stablecoins: USDC (Circle), USDT (Tether), PYUSD (PayPal, issued by Paxos), USDG (Paxos Singapore). Solana doesn't have a big native crypto-backed stablecoin like DAI on Ethereum.
-2. Swaps: Raydium, Orca and Meteora run pools. HumidiFi is a "prop AMM": a professional market maker quoting its own prices on chain. Prop AMMs took a large share of Solana spot volume in 2026.
+2. Swaps: Raydium, Orca and Meteora run pools. HumidiFi is a "prop AMM": a professional market maker quoting its own prices on chain. HumidiFi led Solana spot DEX volume in late 2025 (roughly 30 to 47%), then BisonFi, another prop AMM, passed it in January 2026.
 3. Jupiter sits on top. Most people never touch a DEX directly. They swap on Jupiter, which checks every pool and routes the trade. Jupiter also runs lending (Jupiter Lend, launched August 2025), perps and the JLP pool.
-4. Lending: Kamino Lend, Jupiter Lend, Save (formerly Solend), marginfi. Same idea as Aave or Compound: deposit, borrow against collateral, get liquidated if it falls too far.
+4. Lending: Kamino Lend, Jupiter Lend, Save (formerly Solend), Project 0 (formerly marginfi). Same idea as Aave or Compound: deposit, borrow against collateral, get liquidated if it falls too far.
 5. Perps: Drift and Jupiter Perps. Perpetual futures, leverage without an expiry date.
 6. Liquid staking: Jito (JitoSOL), Sanctum, Marinade, JupSOL. Stake SOL and get a token that earns staking rewards and can still be used elsewhere.
 7. Oracles: Pyth and Switchboard feed prices to lenders and perps. If the price is wrong, the lender liquidates the wrong people. Week 4 and week 5.
@@ -443,7 +443,7 @@ Everything on the left, plus:
 </template>
 </Tracks>
 
-<Callout tone="warn" class="mt-5">Old tutorials using <code>quote-api.jup.ag/v6</code> or <code>lite-api.jup.ag</code> are retired or being retired.</Callout>
+<Callout tone="warn" class="mt-5">Old tutorials using <code>quote-api.jup.ag/v6</code> will break: it is being shut down. Use <code>api.jup.ag</code> with a free key.</Callout>
 
 <!--
 Users: they do not need any money. Jupiter shows a quote before you connect anything. The route view shows which venues the trade would go through and in what proportions.
@@ -488,7 +488,7 @@ amount is in the smallest unit of the input token. SOL has 9 decimals, so 1 SOL 
 
 The two mint addresses are mainnet SOL (wrapped SOL) and mainnet USDC. They are safe to put in a quote request: nothing is signed or sent.
 
-Step 2 assumes the response has a routePlan array as older Jupiter APIs did. If the v2 response names it differently, adapt it live. That is a good lesson in itself: read the real response, not the tutorial.
+Checked 14 Oct 2026 against Jupiter's API reference: without a taker the response is a quote and `transaction` is null. `routePlan` is an array of legs, each with `swapInfo`, `percent` and `bps`; a separate `router` field names the engine that won (metis, jupiterz, dflow or okx). The header is x-api-key. Still print the full JSON first: APIs change.
 -->
 
 ---

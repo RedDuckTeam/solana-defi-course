@@ -7,7 +7,7 @@ const props = withDefaults(defineProps<{ step?: number }>(), { step: 99 })
 const s = computed(() => props.step)
 const groups = [
   { k: 2, x: 20, y: 20, w: 270, h: 120, t: 'Swaps', tf: 'exchange', items: ['Raydium', 'Orca', 'Meteora', 'HumidiFi'] },
-  { k: 4, x: 610, y: 20, w: 270, h: 120, t: 'Lending', tf: 'bank loan desk', items: ['Kamino Lend', 'Jupiter Lend', 'Save', 'marginfi'] },
+  { k: 4, x: 610, y: 20, w: 270, h: 120, t: 'Lending', tf: 'bank loan desk', items: ['Kamino Lend', 'Jupiter Lend', 'Save', 'Project 0'] },
   { k: 5, x: 610, y: 270, w: 270, h: 105, t: 'Perps', tf: 'futures desk', items: ['Drift', 'Jupiter Perps'] },
   { k: 6, x: 20, y: 270, w: 270, h: 105, t: 'Liquid staking', tf: 'deposit', items: ['Jito', 'Sanctum', 'Marinade', 'JupSOL'] },
 ]

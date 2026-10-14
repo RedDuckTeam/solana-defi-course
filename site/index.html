@@ -58,6 +58,13 @@
   footer a, p a { color: var(--chain); }
   .key { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: var(--fs-sm); margin-top: 1rem; }
   .key span::before { content: ''; display: inline-block; width: 0.8em; height: 0.8em; border-radius: 2px; margin-right: 0.4em; vertical-align: -0.05em; background: currentColor; }
+  .tablewrap { overflow-x: auto; position: relative; border-top: 2px solid var(--ink); }
+  table.dl { border-collapse: collapse; width: 100%; min-width: 640px; font-size: var(--fs-sm); background: rgba(243,246,241,0.9); }
+  table.dl th, table.dl td { text-align: left; padding: 0.55rem 0.6rem; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+  table.dl thead th { color: var(--muted); font-weight: 650; }
+  table.dl tbody th { font-weight: 800; }
+  table.dl a { color: var(--chain); }
+  code { font-family: var(--mono); font-size: var(--fs-xs); background: var(--chain-soft); color: var(--chain); padding: 0.05em 0.35em; border-radius: 4px; }
   @media (max-width: 640px) {
     .week { grid-template-columns: 3rem minmax(0, 1fr); }
     .ship { grid-column: 2; text-align: left; }
@@ -74,6 +81,7 @@
     <div class="cta">
       <a class="btn primary" href="./course/">Start with the course map</a>
       <a class="btn" href="https://github.com/tobySolutions/solana-defi-course">Source on GitHub</a>
+      <a class="btn" href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/README.md">Teacher guide</a>
     </div>
     <div class="key">
       <span style="color: var(--ink)">traditional finance</span>
@@ -100,12 +108,34 @@
     <div class="card"><h3>Write it up</h3><p>One blog post a week. Six posts by the end is a portfolio for bounties and jobs.</p></div>
   </div>
 
+  <h2>Teach it live</h2>
+  <div class="grid">
+    <div class="card"><h3>Mentees</h3><p>Send them the week's link, for example <code>/week-3/</code>. Their screen follows yours: when you move a slide or step an animation, they move too. They can flip back on their own and snap to you on your next click.</p></div>
+    <div class="card"><h3>You</h3><p>Open <code>/week-3/?key=YOUR-KEY#/presenter/1</code>. Speaker view shows your notes, the next slide and a timer. Only a link with the presenter key moves the class.</p></div>
+    <div class="card"><h3>No internet?</h3><p>Every deck also runs offline from the repo: <code>npm run teach -- 3</code> gives a speaker link for you and a follow link for anyone on the same Wi-Fi.</p></div>
+  </div>
+
+  <h2>Downloads</h2>
+  <div class="tablewrap"><table class="dl">
+    <thead><tr><th></th><th>Slides</th><th>Speaker script</th><th>Cheat sheet</th><th>Teacher guide</th><th>Task file</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">Course map</th><td><a href="./downloads/course-map-slides.pdf">Slides</a></td><td><a href="./downloads/course-map-speaker.pdf">Speaker script</a></td><td></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/README.md">How to run it</a></td><td></td></tr>
+    <tr><th scope="row">Week 1</th><td><a href="./downloads/week-1-slides.pdf">Slides</a></td><td><a href="./downloads/week-1-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-1-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-1.md">Teacher guide</a></td><td></td></tr>
+    <tr><th scope="row">Week 2</th><td><a href="./downloads/week-2-slides.pdf">Slides</a></td><td><a href="./downloads/week-2-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-2-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-2.md">Teacher guide</a></td><td></td></tr>
+    <tr><th scope="row">Week 3</th><td><a href="./downloads/week-3-slides.pdf">Slides</a></td><td><a href="./downloads/week-3-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-3-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-3.md">Teacher guide</a></td><td><a href="./downloads/week-3-liquidity-model.xlsx">Pool model (.xlsx)</a></td></tr>
+    <tr><th scope="row">Week 4</th><td><a href="./downloads/week-4-slides.pdf">Slides</a></td><td><a href="./downloads/week-4-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-4-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-4.md">Teacher guide</a></td><td><a href="./downloads/week-4-lending-model.xlsx">Lending model (.xlsx)</a></td></tr>
+    <tr><th scope="row">Week 5</th><td><a href="./downloads/week-5-slides.pdf">Slides</a></td><td><a href="./downloads/week-5-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-5-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-5.md">Teacher guide</a></td><td></td></tr>
+    <tr><th scope="row">Week 6</th><td><a href="./downloads/week-6-slides.pdf">Slides</a></td><td><a href="./downloads/week-6-speaker.pdf">Speaker script</a></td><td><a href="./downloads/week-6-cheatsheet.pdf">Cheat sheet</a></td><td><a href="https://github.com/tobySolutions/solana-defi-course/blob/main/teacher/week-6.md">Teacher guide</a></td><td></td></tr>
+    </tbody>
+  </table></div>
+  <p>Builders track: tested starter code for every week in <a href="https://github.com/tobySolutions/solana-defi-course/tree/main/builders">builders/</a>.</p>
+
   <h2>Run it yourself</h2>
 <pre>git clone https://github.com/tobySolutions/solana-defi-course
 cd solana-defi-course
 npm install
 npx slidev week-1.md     # or slides.md for the course map</pre>
-  <p>Press <b>P</b> for presenter mode with notes, <b>O</b> for the slide overview, arrow keys to step through animations. Facts were checked on 11 October 2026; anything that moves weekly carries a date.</p>
+  <p>Press <b>P</b> for speaker view with notes, <b>O</b> for the slide overview, arrow keys to step through animations. Facts were checked on 11 October 2026; anything that moves weekly carries a date.</p>
 
   <footer>
     <p>Devnet and test tokens only. Never share a recovery phrase. Nothing here is financial advice.</p>

@@ -70,7 +70,7 @@ All three are equally valid. The tier is about tools, not about how serious the 
 
 No code: a Solana stablecoin report or dashboard. Supply by coin, growth, who uses them. DefiLlama, Artemis or Dune. The bar: a date and a source on every number. For context, Solana stablecoin supply hit a reported record of $17.3B on 25 Sep 2026, mostly USDC (handbook figure). They should pull their own number on the day they write.
 
-Light code: a TypeScript tool with @solana/kit. Live SOL price from Pyth Hermes, a Jupiter quote, and a "best route" readout. Or a wallet health checker for a lending position (week 4's spreadsheet, as a script).
+Light code: a TypeScript tool with @solana/kit. Live SOL price from Pyth (the on-chain price account, as in builders/ts w4-pyth-price.ts), a Jupiter quote, and a "best route" readout. Or a wallet health checker for a lending position (week 4's spreadsheet, as a script).
 
 On-chain: an Anchor (or Quasar) program. Constant-product AMM (week 3), escrow, or a mini lending market that reads a Pyth price (week 4). Tested with LiteSVM or Surfpool and deployed to devnet.
 
@@ -145,6 +145,8 @@ Versions as of 6 Oct 2026. Solana moves to sBPFv3 in Q4 2026; after SIMD-0500 ac
 </Callout>
 
 <!--
+Two traps found while building builders/anchor (checked 14 Oct 2026). First, `anchor` runs whatever version avm has selected, not the one in Anchor.toml: run `avm install 1.2.1 && avm use 1.2.1` first. Second, a project scaffolded by Anchor 1.2.1 builds sBPFv3 programs, but its generated LiteSVM 0.10 tests cannot load them (InvalidAccountData). Use LiteSVM 0.16 and Rust 1.95, as builders/anchor does, or start from that workspace instead of `anchor init`. On Anchor 0.32.x, plain `anchor build` may still produce old-format programs: use `cargo build-sbf --arch v3`. SIMD-0500 is expected on mainnet with Agave 4.4 in Nov 2026; existing programs keep running, but new deploys and upgrades need sBPFv3.
+
 From the handbook, checked 11 Oct 2026:
 - Start on the latest Anchor 1.x: 1.2.1 as of 6 October 2026.
 - Solana is moving to sBPFv3 in Q4 2026. Once SIMD-0500 activates, programs not built for sBPFv3 cannot be deployed.

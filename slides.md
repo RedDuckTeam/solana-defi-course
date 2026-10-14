@@ -167,7 +167,7 @@ Rule 3 is the analyst habit. DefiLlama, Artemis and Dune often disagree, sometim
 | Devnet SOL | `faucet.solana.com` or `solana airdrop 2 --url devnet` |
 | Devnet USDC | `faucet.circle.com` · mint `4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU` |
 | Explorer | Orb (`orb.helius.dev`), Solscan, `explorer.solana.com` + `?cluster=devnet` |
-| Prices | Pyth Hermes (`hermes.pyth.network`) |
+| Prices | Pyth (`insights.pyth.network`); Builders read the price account on chain |
 | Data | DefiLlama, Artemis, Dune |
 | Builders | Anchor 1.x, LiteSVM, Surfpool, `@solana/kit` |
 
@@ -178,7 +178,7 @@ The SOL faucet limits by IP, so one shared Wi-Fi gets throttled. Pre-fund a teac
 <!--
 Check every one of these the week before you need it.
 
-Circle's devnet faucet limit is reportedly 20 USDC per 2 hours per address (third-party source, not confirmed by Circle). The SOL faucet rate-limits by IP, which hurts when a whole class shares one connection. Fallback: fund one teacher wallet beforehand and send each student 1 devnet SOL.
+Circle's devnet faucet gives 20 USDC every 2 hours, per address, per chain (Circle's faucet FAQ, checked 14 Oct 2026). The SOL faucet rate-limits by IP, which hurts when a whole class shares one connection. Fallback: fund one teacher wallet beforehand and send each student 1 devnet SOL.
 
 Builders: Anchor 1.2.1 was the latest on 6 October 2026. Solana is moving to sBPFv3 in Q4 2026; once SIMD-0500 activates, programs built on old toolchains cannot be deployed. Tutorials pinned to Anchor 0.29 will break. Supported minimums: Anchor 0.30.2, 0.31.2, 0.32.2 or 1.2.0+.
 -->

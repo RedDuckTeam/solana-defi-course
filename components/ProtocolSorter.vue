@@ -14,7 +14,7 @@ const buckets = [
 const protocols = [
   { n: 'Raydium', k: 'dex' }, { n: 'Jupiter', k: 'agg' }, { n: 'Kamino Lend', k: 'lend' }, { n: 'Pyth', k: 'oracle' },
   { n: 'Orca', k: 'dex' }, { n: 'Drift', k: 'perps' }, { n: 'Jito', k: 'lst' }, { n: 'Save', k: 'lend' },
-  { n: 'Meteora', k: 'dex' }, { n: 'Switchboard', k: 'oracle' }, { n: 'Marinade', k: 'lst' }, { n: 'marginfi', k: 'lend' },
+  { n: 'Meteora', k: 'dex' }, { n: 'Switchboard', k: 'oracle' }, { n: 'Marinade', k: 'lst' }, { n: 'Project 0', k: 'lend' },
   { n: 'Sanctum', k: 'lst' }, { n: 'HumidiFi', k: 'dex' },
 ]
 const placed = ref<Record<string, string>>({})
