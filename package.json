@@ -1,0 +1,21 @@
+{
+  "name": "solana-defi-course",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open",
+    "dev:week": "slidev",
+    "build": "node scripts/build-all.mjs",
+    "check:type": "node scripts/check-type-scale.mjs"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.64.1"
+  },
+  "dependencies": {
+    "bs58": "^6.0.0",
+    "tweetnacl": "^1.0.3",
+    "vue": "^3.5.44"
+  }
+}
