@@ -2,6 +2,18 @@
 
 What changed, when, and how it was checked. Newest first.
 
+## 2026-10-15 · Uniswap on Solana, and lessons from Turbin3's builder track
+
+**Added**
+- Week 1, slide 16 "Uniswap on Solana?" (`UniswapOnSolana.vue`, 4 clicks): since 16 Oct 2025 the Uniswap web app swaps Solana tokens through Jupiter's API. Uniswap has no pools on Solana, and the Oct 2025 help centre said you cannot LP there through Uniswap. It's taught as a front end vs protocol lesson. Sources: blog.uniswap.org/solana-now-live, The Block (Oct 2025).
+- Week 3 notes: the family tree. Uniswap v2's constant product is Raydium CPMM's maths; Uniswap v3's concentrated liquidity is Orca Whirlpools and Raydium CLMM; Meteora DLMM's bins come from Liquidity Book. Also a third Builders reference: the constant-product-curve crate used in Turbin3's Anchor AMM class.
+- Week 2 notes: fee payers and sponsored transactions. Week 4 notes: Switchboard, and USD-priced escrow paid in SOL. Week 6 notes: escrow and bounty capstone ideas.
+- EVM map card: Uniswap now explains the Jupiter routing.
+
+**Changed**
+- Teacher guide week 1: slide numbers after 15 shifted by one, and there's a new teach-back prompt.
+- All PDFs regenerated.
+
 ## 2026-10-14 · Close the gaps (ace0a44)
 
 **Added**

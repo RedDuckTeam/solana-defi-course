@@ -380,6 +380,8 @@ Builders: `cd builders/ts && npm run w4:price`. It reads the SOL/USD price accou
 
 The pull model on the previous slide still holds: apps fetch a signed update and post it in the same transaction. Only the public, keyless access went away.
 
+The other big oracle on Solana is Switchboard. A common pattern is pricing something in dollars but paying in SOL: a bounty app can ask for "$100 of SOL", read the SOL/USD feed at funding time, and lock that much SOL in escrow. Ask: what happens to the prize's dollar value if SOL drops 30% before the winner is paid? (It drops too, unless the app re-prices or holds a stablecoin.)
+
 This price is the starting row of the spreadsheet task. Course rule 3: write down the time.
 -->
 

@@ -1,6 +1,6 @@
 # Week 1 · Intro to DeFi
 
-Deck: `/week-1/` (28 slides). Slides 26 to 28 are teacher prep: read them before the week. They are not for the sessions.
+Deck: `/week-1/` (29 slides). Slides 27 to 29 are teacher prep: read them before the week. They are not for the sessions.
 
 ## 1. Outcomes
 
@@ -21,20 +21,21 @@ By the end of the week the mentee can:
 - Mentee does: runs the decentralisation dial on a protocol they pick.
 - Teach-back: "Explain to me, a bank customer, what changes when a program holds my money." "Is FTX DeFi or CeFi, and why?"
 
-**Session 2: history and the map (slides 10 to 15, 60 to 90 min)**
+**Session 2: history and the map (slides 10 to 16, 60 to 90 min)**
 - Slides 10 to 12: seven stops from Bitcoin to Solana DeFi, then Terra vs FTX.
 - Slides 13 to 15: the Solana map, then the sorting game.
+- Slide 16: "Uniswap on Solana": the Uniswap app swaps Solana tokens through Jupiter; there are no Uniswap pools on Solana. Front end vs protocol.
 - Mentee does: plays the sorting game out loud, explaining each choice.
-- Teach-back: "Why were Terra and FTX different failures?" "What does Jupiter do that a DEX doesn't?"
+- Teach-back: "Why were Terra and FTX different failures?" "What does Jupiter do that a DEX doesn't?" "If I swap on the Uniswap app with Solana selected, whose pools fill my trade?"
 
-**Session 3: why Solana, and the task (slides 16 to 25, 60 to 120 min)**
-- Slides 16 to 20: three numbers, the parallel lanes simulation, why it matters, quiz.
-- Slides 21 to 25: Jupiter route, the task, the Builders code, the blog prompt.
+**Session 3: why Solana, and the task (slides 17 to 26, 60 to 120 min)**
+- Slides 17 to 21: three numbers, the parallel lanes simulation, why it matters, quiz.
+- Slides 22 to 26: Jupiter route, the task, the Builders code, the blog prompt.
 - Mentee does: starts the task live. Gets a SOL to USDC quote on jup.ag and reads the route.
 - Teach-back: "Why can two unrelated transactions run at once?" "What is a hot account?"
 
 **Consolidation (30 to 45 min)**
-- The mentee re-teaches slides 4, 14 and 18 from memory.
+- The mentee re-teaches slides 4, 14 and 19 from memory.
 - Review their route notes. Answer their open question for the blog.
 
 ## 3. Pre-reading
@@ -99,4 +100,4 @@ By the end of the week the mentee can:
 
 ## 8. If time is short
 
-Skip slides 7 (decentralisation dial), 12 (2022 collapses) and 24 (Builders code, for Users-only groups). Keep slides 4, 14, 18 and 22.
+Skip slides 7 (decentralisation dial), 12 (2022 collapses) and 25 (Builders code, for Users-only groups). Keep slides 4, 14, 16, 19 and 23.

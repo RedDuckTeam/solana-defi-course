@@ -75,6 +75,8 @@ Light code: a TypeScript tool with @solana/kit. Live SOL price from Pyth (the on
 On-chain: an Anchor (or Quasar) program. Constant-product AMM (week 3), escrow, or a mini lending market that reads a Pyth price (week 4). Tested with LiteSVM or Surfpool and deployed to devnet.
 
 The curriculum's four capstone options (investment and risk analysis, ecosystem research comparing three protocols, a financial model in a spreadsheet, a beginner developer investigation) all fit inside these tiers. A finance graduate who builds an excellent lending model in a spreadsheet has a stronger portfolio piece than a copied AMM.
+
+More on-chain ideas that fit six weeks: a time-locked escrow (maker deposits, taker completes, refund after a deadline), a bounty or contest pool priced in USD through an oracle and paid in SOL, or sponsored transactions so participants need no SOL. Each one reuses a week of this course: escrow is accounts and PDAs (week 2), USD pricing is oracles (week 4), and the security review is week 5.
 -->
 
 ---

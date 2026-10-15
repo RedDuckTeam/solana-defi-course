@@ -408,6 +408,8 @@ Rent deposit: only if the transaction creates an account, and you get it back wh
 Finance connection: at these costs, a $5 trade is worth doing. On Ethereum mainnet in busy periods, gas could be several dollars, which killed small trades entirely. Fees shape who can use DeFi.
 
 Failed transactions still pay the fee. The validator did the work of running it.
+
+Who pays is a choice. Every transaction names a fee payer, and it doesn't have to be the user: an app can sign as fee payer and cover fees for its users. Contest and bounty apps, games and onboarding flows use this so newcomers can act without holding any SOL. The catch: the sponsor pays for spam too, so sponsored apps rate-limit or require a login.
 -->
 
 ---

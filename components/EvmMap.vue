@@ -9,7 +9,7 @@ const rows = [
   { evm: 'Etherscan', sol: 'Orb, Solscan, explorer.solana.com', why: 'Add ?cluster=devnet to the URL to see devnet.' },
   { evm: 'ERC-20 contract', sol: 'Mint account + token accounts', why: 'One shared token program. Your balance sits in your own token account.' },
   { evm: 'Gas', sol: 'Base fee + priority fee + rent', why: 'Fractions of a cent. Rent is a refundable deposit for storage.' },
-  { evm: 'Uniswap', sol: 'Raydium, Orca, Meteora + Jupiter', why: 'Most people swap through Jupiter, which routes across all of them.' },
+  { evm: 'Uniswap', sol: 'Raydium, Orca, Meteora + Jupiter', why: 'Uniswap has no pools on Solana. Its app swaps Solana tokens through Jupiter (since Oct 2025).' },
   { evm: 'Aave, Compound', sol: 'Kamino, Jupiter Lend, Save, Project 0', why: 'Same mechanics: collateral, LTV, liquidation.' },
   { evm: 'MakerDAO / DAI', sol: 'USDC, USDT, PYUSD, USDG', why: 'Solana money is mostly fiat-backed stablecoins.' },
   { evm: 'Chainlink', sol: 'Pyth, Switchboard', why: 'Pyth is pull: the app fetches a signed price and posts it in the same transaction.' },

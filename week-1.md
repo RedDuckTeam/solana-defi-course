@@ -313,6 +313,29 @@ The ones that trip people up:
 -->
 
 ---
+clicks: 4
+---
+
+# "Uniswap on Solana"?
+
+<UniswapOnSolana :step="$clicks" class="mt-2" />
+
+<!--
+Mentees who know Ethereum will ask this, and it's a great lesson in layers.
+
+Click 1: on Ethereum, the Uniswap app (uniswap.org, the website) sends your swap to Uniswap's own pools: smart contracts on Ethereum (versions v2, v3, v4).
+Click 2: since 16 October 2025, the same Uniswap web app also swaps Solana tokens. Connect Phantom or Solflare, pick Solana as the network. It was Uniswap's first non-EVM chain.
+Click 3: but Uniswap did not deploy its pools on Solana. The app hands the swap to Jupiter's API, which routes it through Solana's own venues: Raydium, Orca, Meteora, prop AMMs.
+Click 4: the lesson. A front end (the website) and a protocol (the pools and their code) are different layers. "Uniswap on Solana" means the Uniswap brand and app, filled by Solana liquidity. Uniswap's help centre said in Oct 2025 that you cannot provide liquidity on Solana through Uniswap's interfaces. Bridging, cross-chain swaps and full Uniswap Wallet support were announced as later phases; check uniswap.org before claiming they're live.
+
+Tie back to the decentralisation dial: "anyone can build their own front end" is exactly what happened here. Uniswap built a front end on top of Jupiter, and Jupiter built a router on top of other people's pools.
+
+The Uniswap ideas are everywhere on Solana anyway: Raydium's CPMM is Uniswap v2's constant-product math, and Orca Whirlpools and Raydium CLMM are Uniswap v3-style concentrated liquidity (week 3).
+
+Sources: blog.uniswap.org/solana-now-live (16 Oct 2025); The Block, "Uniswap's web app starts support for Solana" (Oct 2025). Checked 15 Oct 2026.
+-->
+
+---
 layout: section
 tone: chain
 ---

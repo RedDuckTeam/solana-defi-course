@@ -115,6 +115,8 @@ clicks: 4
 </style>
 
 <!--
+This is the rule Uniswap v2 made famous in 2020. On Solana, Raydium CPMM uses the same maths.
+
 Click 1 and 2: x and y are just the two balances.
 
 Click 4 (after k): the pool's price is the ratio. A pool with 100 SOL and 15,000 USDC prices SOL at 15,000 / 100 = 150 USDC. Nobody typed that price in; it falls out of the balances.
@@ -329,6 +331,8 @@ clicks: 4
 <CurveFamilies :step="$clicks" class="mt-4" />
 
 <!--
+Family tree, because mentees from Ethereum will ask: Uniswap v2 (2020) made x · y = k famous; Raydium CPMM uses the same constant-product maths. Uniswap v3 (2021) introduced concentrated liquidity; Orca Whirlpools and Raydium CLMM follow that design. Meteora DLMM's bins are closer to Trader Joe's Liquidity Book. Uniswap itself has no pools on Solana: its app routes Solana swaps through Jupiter (week 1).
+
 Each mini chart: x axis is price, height is how much liquidity sits at that price, red dashed line is the current price.
 
 Click 1, constant product (Raydium CPMM): liquidity is spread evenly from zero to infinity. Most of it sits at prices that will never trade. Simple, permissionless, but capital-inefficient.
@@ -505,7 +509,7 @@ A. Raydium devnet. Raydium announced a working devnet UI through its infra accou
 
 B. Orca SDK on devnet. Orca's docs use an existing SOL/devUSDC Whirlpool on devnet and setWhirlpoolsConfig('solanaDevnet'). Whirlpools program: whirLbMiicVdio4qvUfM5KAg6Ct8VwpYzGff3uctyCc. Pool: 3KBZiL2g8C7tiJ32hTv5v3KM7aK9htpqTw4cTXz1HvPt. Package: @orca-so/whirlpools. Remember it needs Orca's devUSDC, not Circle's.
 
-C. Build the pool. Builders deploy the constant-product example from solana-developers/program-examples/tokens/token-swap (Anchor; create pool, deposit, withdraw, swap; fee in basis points) or do Blueshift's Pinocchio AMM challenge. Users then provide liquidity to it with two tokens minted in week 2. This is the most reliable route because you control every piece.
+C. Build the pool. Builders deploy the constant-product example from solana-developers/program-examples/tokens/token-swap (Anchor; create pool, deposit, withdraw, swap; fee in basis points) or do Blueshift's Pinocchio AMM challenge. A third reference: the constant-product-curve crate (github.com/deanmlittle/constant-product-curve) that Turbin3's Anchor AMM class builds on; it handles the curve maths, LP minting and slippage so the program can focus on accounts. builders/anchor/programs/cp-amm in this repo is a smaller, fully tested version. Users then provide liquidity to it with two tokens minted in week 2. This is the most reliable route because you control every piece.
 
 Everyone: the impermanent-loss spreadsheet with at least three price scenarios, and a comparison of four yield sources.
 -->
