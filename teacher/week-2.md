@@ -1,6 +1,6 @@
 # Week 2 · Wallets and on-chain basics
 
-Deck: `/week-2/` (29 slides). Slides 27 to 29 are teacher prep.
+Deck: `/week-2/` (30 slides). Slides 28 to 30 are teacher prep.
 
 ## 1. Outcomes
 
@@ -20,15 +20,15 @@ By the end of the week the mentee can:
 - Mentee does: generates a keypair on slide 6, signs, edits the message, watches verification fail.
 - Teach-back: "If my phone breaks, is my money gone?" "What does a signature prove, and what doesn't it?"
 
-**Session 2: accounts and tokens (slides 9 to 16, 60 to 90 min)**
+**Session 2: accounts and tokens (slides 9 to 17, 60 to 90 min)**
 - Slides 9 to 11: account anatomy, rent as a deposit.
-- Slides 12 to 16: the token tree, which USDC is real, SPL vs Token-2022, quiz.
-- Mentee does: clicks through all four account types. Picks the real Circle USDC on slide 14.
+- Slides 12 to 17: the token tree, which USDC is real, SPL vs Token-2022, find any token account, quiz.
+- Mentee does: clicks through all four account types. Picks the real Circle USDC on slide 14, then finds a wallet's USDC token account on slide 16 and flips it to Token-2022.
 - Teach-back: "Where does my USDC balance live?" "Two tokens are both called USDC. How do I tell which is real?"
 
-**Session 3: transactions and the task (slides 17 to 26, 60 to 120 min)**
-- Slides 17 to 22: transaction anatomy, lifecycle, fees, quiz, explorer tour.
-- Slides 23 to 26: the task, the Builders CLI, the blog prompt.
+**Session 3: transactions and the task (slides 18 to 27, 60 to 120 min)**
+- Slides 18 to 23: transaction anatomy, lifecycle, fees, quiz, explorer tour.
+- Slides 24 to 27: the task, the Builders CLI, the blog prompt.
 - Mentee does: the task live. Wallet on devnet, faucets, send USDC to the mentor, read it on Orb.
 - Teach-back: "Why did this transaction fail but still cost a fee?" "What does 'finalized' mean?"
 
@@ -98,4 +98,4 @@ By the end of the week the mentee can:
 
 ## 8. If time is short
 
-Skip slides 7 (custodial vs non-custodial), 15 (Token-2022 extensions, cover in week 5) and 25 (Builders CLI, for Users-only groups). Keep slides 4, 6, 13 and 22.
+Skip slides 7 (custodial vs non-custodial), 15 (Token-2022 extensions, cover in week 5) and 26 (Builders CLI, for Users-only groups). Keep slides 4, 6, 13 and 23.

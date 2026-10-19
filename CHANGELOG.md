@@ -2,6 +2,14 @@
 
 What changed, when, and how it was checked. Newest first.
 
+## 2026-10-19 · Week 2: find any token account
+
+**Added**
+- Week 2, slide 16 "Find any token account" (`AtaAddress.vue`): wallet + token program + mint gives the associated token account and its bump, computed in the browser with no network calls. The SPL Token / Token-2022 toggle shows that the same wallet and mint get a different address. Defaults are a throwaway wallet and Circle's devnet USDC, so it shows a result without clicks. Checked against `@solana/spl-token` and `@solana/addresses` on the defaults and 50 random wallet/mint pairs. Source: SPL Associated Token Account docs (solana-program.com/docs/associated-token-account), 19 Oct 2026.
+
+**Changed**
+- Teacher guide week 2: slide numbers after 15 shifted by one.
+
 ## 2026-10-15 · Uniswap on Solana, and lessons from Turbin3's builder track
 
 **Added**

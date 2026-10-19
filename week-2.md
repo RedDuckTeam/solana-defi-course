@@ -333,6 +333,29 @@ Mint authority: can create more tokens (dilution). Freeze authority: can freeze 
 
 ---
 
+# Find any token account
+
+Wallet plus token program plus mint gives one address. No lookup, no registry.
+
+<AtaAddress class="mt-4" />
+
+<!--
+This is the "derived from your wallet plus the mint" from the tree slide, computed live. Everything runs in the browser; nothing is sent.
+
+The Associated Token Account (ATA) address is a Program Derived Address (PDA) of the Associated Token Account program (ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL). The seeds are the wallet, the token program and the mint, in that order. Wallets, explorers and every DeFi program run the same calculation, which is how a payment app knows where to send USDC with only your wallet address.
+
+Show three things:
+1. New wallet: a different owner, a different ATA. The mint stays the same.
+2. Flip SPL Token to Token-2022: same wallet, same mint, a different address. The token program is part of the seed, so a Token-2022 token never lands at the address an SPL Token mint would use. Circle's devnet USDC is an SPL Token mint, so on devnet only the SPL Token address can actually exist.
+3. Type a 0 into the wallet, or cut it in half: the input turns red. An address is 32 bytes written in base58, which has no 0, O, I or l, and a broken one gives nothing.
+
+"Bump" and "off the curve": the program hashes the seeds with a number from 255 down until the result is not a valid Ed25519 public key. No secret key exists for that address, so only the ATA program can create it and only the Token Program can move what is in it, on the owner's signature. The same trick gives escrows and pools their vault accounts (week 6 capstone ideas).
+
+Source: Solana docs, Token accounts and Program Derived Addresses (solana.com/docs/tokens, solana.com/docs/core/pda), checked 19 Oct 2026.
+-->
+
+---
+
 <Quiz
   q="Where does your USDC balance actually live?"
   :options="['Inside your wallet account', 'Inside the USDC mint account', 'In your own USDC token account', 'In the Token Program\'s code']"
